@@ -6,30 +6,52 @@
 #
 
 Add-Type -AssemblyName System.Windows.Forms
+Add-Type -AssemblyName System.Drawing
 
 
-
-Class Button : System.Windows.Forms.Button {
-    Button ([string]$Text, [int]$Width, [int]$Height, [int]$LocationX, [int]$LocationY) {
+class Button : System.Windows.Forms.Button {
+    Button (
+        [string]$Text, 
+        [int]$Width, 
+        [int]$Height, 
+        [int]$LocationX, 
+        [int]$LocationY, 
+        [string]$Color,
+        [string]$HighlightColor,
+        [string]$Font) 
+    {
         $this.text = $Text
         $this.width = $Width
         $this.height = $Height
         $this.location = [System.Drawing.Point]::new($LocationX, $LocationY)
+        $this.BackColor = $Color
+        $this.ForeColor = $HighlightColor
+        $this.Font = $Font
     }
 }
 
-Class Label : System.Windows.Forms.Label {
-    Label ([string]$Text, [int]$Width, [int]$Height, [int]$LocationX, [int]$LocationY) {
+class Label : System.Windows.Forms.Label {
+    Label (
+        [string]$Text,
+        [int]$Width,
+        [int]$Height,
+        [int]$LocationX,
+        [int]$LocationY, 
+        [string]$Color,
+        [string]$Font)
+    {
         $this.text = $Text
         $this.width = $Width
         $this.height = $Height
+        $this.Font = $Font
+        $this.BackColor = $Color
         $this.Autosize = $True
         $this.location = [System.Drawing.Point]::new($LocationX, $LocationY)
     }
 }
 
-Class CheckBox : System.Windows.Forms.CheckBox {
-
+class CheckBox : System.Windows.Forms.CheckBox {
+    CheckBox (){}
 }
 
 
